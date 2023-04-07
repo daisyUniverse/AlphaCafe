@@ -38,7 +38,7 @@ def postTweet():
 
 # Return the path of a random panel
 def randomPanel():
-    directory_path = "panels/"
+    directory_path = ( cfg['IMAGES_PATH'] + "/")
     image_extensions = ('.jpg', '.jpeg', '.png', '.gif', '.bmp')
     for dirpath, dirnames, filenames in os.walk(directory_path):
         image_files = [f for f in filenames if f.lower().endswith(image_extensions)]
@@ -48,7 +48,7 @@ def randomPanel():
     return None
 
 # Schedule the postTweet function to run every 30 minutes using the schedule library
-schedule.every(30).minutes.do(postTweet)
+schedule.every(cfg['DELAY_IN_MINUTES']).minutes.do(postTweet)
 
 while True:
     schedule.run_pending()
