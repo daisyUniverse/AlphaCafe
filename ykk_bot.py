@@ -52,7 +52,7 @@ def GetFreshness(path):
     with open("freshness.json", "r") as freshfile:
         freshnessDB = json.load(freshfile)
         
-    if freshnessDB[path] is not None:
+    if path in freshnessDB:
         freshness = freshnessDB[path]
     else:
         freshnessDB[path] = 10
