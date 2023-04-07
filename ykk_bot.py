@@ -1,9 +1,9 @@
+import schedule
 import random
 import tweepy
+import time
 import json
 import os
-import schedule
-import time
 
 # A simple Twitter bot that posts a random image every 30 minutes
 # Original bot Created by @FIybyday using Cheap Bots, Done Quick!
@@ -14,6 +14,7 @@ import time
 with open("config.json", "r") as jsonfile:
     cfg = json.load(jsonfile)
 
+# The Beans
 def postTweet():
 
     # Init the Twitter API V2 Client
@@ -44,7 +45,8 @@ def randomPanel():
             return os.path.join(dirpath, random_image)
     return None
 
-schedule.every(30).minutes.do(postTweet)
+# Schedule the postTweet function to run every 30 minutes using the schedule library
+schedule.every(30).minutes.do(postTweet())
 
 while True:
     schedule.run_pending()
