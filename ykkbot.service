@@ -1,0 +1,14 @@
+[Unit]
+Description=YKKBotV2
+After=syslog.target network.target dbus.service
+StartLimitBurst=25
+
+[Install]
+WantedBy=default.target
+
+[Service]
+ExecStart=/usr/bin/screen -dmS ykkbot /usr/bin/python /home/cloth/ykk_bot/ykk_bot.py
+Type=forking
+WorkingDirectory=/home/cloth/ykk_bot/
+Restart=always
+RestartSec=3
