@@ -47,32 +47,6 @@ def randomPanel():
             return os.path.join(dirpath, random_image)
     return None
 
-# Get Freshness of any given image - if this image is new, save a new freshness value of 10, but return 1.
-def GetFreshness(path):
-    with open("freshness.json", "r") as freshfile:
-        freshnessDB = json.load(freshfile)
-        
-    if path in freshnessDB:
-        freshness = freshnessDB[path]
-    else:
-        freshnessDB[path] = 10
-        with open("freshness.json", "w") as freshfile:
-            json.dump(freshnessDB, freshfile)
-            
-        freshness = 1
-    
-    return freshness
-
-# Set the freshness value of any given image
-def SetFreshness(path, freshness)
-    with open("freshness.json", "r") as freshfile:
-        freshnessDB = json.load(freshfile)
-        
-    freshnessDB[path] = freshness
-    
-    with open("freshness.json", "w") as freshfile:
-        json.dump(freshnessDB, freshfile)
-
 # Schedule the postTweet function to run every 30 minutes using the schedule library
 schedule.every(30).minutes.do(postTweet)
 
