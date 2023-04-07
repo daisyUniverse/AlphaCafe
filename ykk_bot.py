@@ -32,10 +32,14 @@ def postTweet():
     # Upload the image and tweet!
     imagePath       = randomPanel()
     print("Posting random panel: '" + str(imagePath) + "'")
-
-    media           = api.media_upload(imagePath)
-    post_results    = client.create_tweet( media_ids=[media.media_id] )
-
+    
+    try:
+        media           = api.media_upload(imagePath)
+        post_results    = client.create_tweet( media_ids=[media.media_id] )
+    except tweepy.TweepError as error:
+        print("Error posting tweet: ", error)
+        return None
+    
 # Return the path of a random panel from a folder specified in the settings.json, searching recursively
 def randomPanel():
     directory_path = ( cfg['IMAGES_PATH'] + "/")
