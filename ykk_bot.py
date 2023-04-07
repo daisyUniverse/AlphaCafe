@@ -36,7 +36,7 @@ def postTweet():
     media           = api.media_upload(imagePath)
     post_results    = client.create_tweet( media_ids=[media.media_id] )
 
-# Return the path of a random panel
+# Return the path of a random panel from a folder specified in the settings.json, searching recursively
 def randomPanel():
     directory_path = ( cfg['IMAGES_PATH'] + "/")
     image_extensions = ('.jpg', '.jpeg', '.png', '.gif', '.bmp')
@@ -47,7 +47,7 @@ def randomPanel():
             return os.path.join(dirpath, random_image)
     return None
 
-# Schedule the postTweet function to run every 30 minutes using the schedule library
+# Schedule the postTweet function to run every periodically using the schedule library ( configurable in settings.json )
 schedule.every(cfg['DELAY_IN_MINUTES']).minutes.do(postTweet)
 
 while True:
