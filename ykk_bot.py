@@ -32,24 +32,30 @@ def postTweet():
     # Upload the image and tweet!
     imagePath       = randomPanel()
     print("Posting random panel: '" + str(imagePath) + "'")
-    
+
     try:
         media           = api.media_upload(imagePath)
         post_results    = client.create_tweet( media_ids=[media.media_id] )
-    except tweepy.TweepError as error:
-        print("Error posting tweet: ", error)
+    except tweepy.errors.TweepError as e:
+        print("Error posting tweet: ", e)
         return None
-    
-# Return the path of a random panel from a folder specified in the settings.json, searching recursively
+
+# Return the path of a random panel
 def randomPanel():
-    directory_path = ( cfg['IMAGES_PATH'] + "/")
+    filepaths = []
     image_extensions = ('.jpg', '.jpeg', '.png', '.gif', '.bmp')
-    for dirpath, dirnames, filenames in os.walk(directory_path):
-        image_files = [f for f in filenames if f.lower().endswith(image_extensions)]
-        if image_files:
-            random_image = random.choice(image_files)
-            return os.path.join(dirpath, random_image)
-    return None
+    for dirpath, dirnames, filenames in os.walk(( cfg['IMAGES_PATH'] + "/")):
+        for filename in filenames:
+            filepath = os.path.join(dirpath, filename)
+            filepaths.append(filepath)
+
+    if not filepaths:
+        return None
+
+    randomPath = random.choice(filepaths)
+    return randomPath
+
+postTweet()
 
 # Schedule the postTweet function to run every periodically using the schedule library ( configurable in settings.json )
 schedule.every(cfg['DELAY_IN_MINUTES']).minutes.do(postTweet)
