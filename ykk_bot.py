@@ -16,7 +16,6 @@ with open("config.json", "r") as jsonfile:
 
 # The Beans
 def postTweet():
-
     # Init the Twitter API V2 Client
     client = tweepy.Client(
         consumer_key        = cfg['CONSUMER_API_KEY'],
@@ -31,12 +30,15 @@ def postTweet():
     api = tweepy.API(auth)
 
     # Upload the image and tweet!
-    media           = api.media_upload(randomPanel())
+    imagePath       = randomPanel()
+    print("Posting random panel: '" + str(imagePath) + "'")
+
+    media           = api.media_upload(imagePath)
     post_results    = client.create_tweet( media_ids=[media.media_id] )
 
 # Return the path of a random panel
 def randomPanel():
-    directory_path = 'Panels'
+    directory_path = "panels/"
     image_extensions = ('.jpg', '.jpeg', '.png', '.gif', '.bmp')
     for dirpath, dirnames, filenames in os.walk(directory_path):
         image_files = [f for f in filenames if f.lower().endswith(image_extensions)]
@@ -46,8 +48,10 @@ def randomPanel():
     return None
 
 # Schedule the postTweet function to run every 30 minutes using the schedule library
-schedule.every(30).minutes.do(postTweet())
+schedule.every(30).minutes.do(postTweet)
 
 while True:
     schedule.run_pending()
     time.sleep(10)
+
+
