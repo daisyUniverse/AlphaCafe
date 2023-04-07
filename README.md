@@ -1,6 +1,6 @@
 # YKKbotV2
 ### Twitter bot that posts a random panel from Yokohama Kaidashi Kikou every 30 mins. 
-Original bot Created by @FIybyday using Cheap Bots, Done Quick!
+Original bot Created by @FIybyday using Cheap Bots, Done Quick! and then reimplemented in python by me
 
 
 I wanted to go ahead and put this on github to give people a solid starting out point to make similar bots in the future. This is roughly the method that I used.
