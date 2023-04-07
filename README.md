@@ -16,3 +16,5 @@ I wanted to go ahead and put this on github to give people a solid starting out 
 8. Generate a new Access Token + Secret and save them in your config file
 9. Using tweepy, set up both auth for V1 and V2 apis using the method seen in my script
 10. Use API V1 to upload the image and use API V2 to post the tweet
+
+This project is licensed under the [DO WHAT THE FUCK YOU WANT TO EXCEPT USE NFTS PUBLIC LICENSE](https://github.com/robinuniverse/WTFNONPL)
