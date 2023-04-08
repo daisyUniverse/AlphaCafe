@@ -1,4 +1,5 @@
 {
+  "BOTNAME":"AlphaCafe",
   "CLIENT_ID":"FILL THIS OUT",
   "CLIENT_SECRET":"FILL THIS OUT",
   "CONSUMER_API_KEY":"FILL THIS OUT",
@@ -8,4 +9,7 @@
   "ACCESS_SECRET":"FILL THIS OUT",
   "DELAY_IN_MINUTES":30,
   "IMAGES_PATH":"panels"
+  "INIT_WITH_POST": true,
+  "TWEET_WITH_TEXT": false,
+  "TEXT_FILE": "text.txt"
 }
