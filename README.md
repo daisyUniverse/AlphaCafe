@@ -1,10 +1,9 @@
-# YKKbotV2
-### Twitter bot that posts a random panel from Yokohama Kaidashi Kikou every 30 mins. 
-Original bot Created by @FIybyday using Cheap Bots, Done Quick! and then reimplemented in python by me
+# AlphaCafe
+### Basic Template for simple twitter bots
+Original bot inspiration: @YKKPanels created by @FIybyday using Cheap Bots, Done Quick! and then reimplemented and expanded in python by me
 
 
 I wanted to go ahead and put this on github to give people a solid starting out point to make similar bots in the future. This is roughly the method that I used.
-
 
 1. create a new twitter account for your bot ( Making it's own fresh e-mail too is nice )
 2. Verify your phone number with twitter
@@ -16,5 +15,16 @@ I wanted to go ahead and put this on github to give people a solid starting out 
 8. Generate a new Access Token + Secret and save them in your config file
 9. Using tweepy, set up both auth for V1 and V2 apis using the method seen in my script
 10. Use API V1 to upload the image and use API V2 to post the tweet
+
+I have expanded this bot in order to make it work for many more situations depending on configuration, you only need to fill out the config file
+
+## CONFIG REFERENCE:
+ - **BOTNAME** : Only used in greeting for now, but could be expanded
+ - **CLIENT_ID**, **CLIENT_SECRET**, etc : Twitter API Auth
+ - **IMAGES_PATH** : This is the folder in which all of your media is kept to be randomly picked from. All contents are scanned recursively, so you can have many subfolders
+ - **DELAY_IN_MINUTES** : This is how many minutes you would like in between posts
+ - **INIT_WITH_POST** : This will define if you would like the bot to post as soon as you start it, or wait for the timer
+ - **TWEET_WITH_TEXT** : This will tell the script if you'd like to tweet a random line from a text file
+ - **TEXT_FILE** : The text file in question.
 
 This project is licensed under the [DO WHAT THE FUCK YOU WANT TO EXCEPT USE NFTS PUBLIC LICENSE](https://github.com/robinuniverse/WTFNONPL)
