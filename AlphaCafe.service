@@ -1,5 +1,5 @@
 [Unit]
-Description=YKKBotV2
+Description=AlphaCafe
 After=syslog.target network.target dbus.service
 StartLimitBurst=25
 
@@ -7,8 +7,8 @@ StartLimitBurst=25
 WantedBy=default.target
 
 [Service]
-ExecStart=/usr/bin/screen -dmS ykkbot /usr/bin/python /home/cloth/ykk_bot/ykk_bot.py
+ExecStart=/usr/bin/screen -dmS ykkbot /usr/bin/python /home/cloth/AlphaCafe/AlphaCafe.py
 Type=forking
-WorkingDirectory=/home/cloth/ykk_bot/
+WorkingDirectory=/home/cloth/AlphaCafe/
 Restart=always
 RestartSec=3
