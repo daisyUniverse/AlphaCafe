@@ -18,7 +18,11 @@ I wanted to go ahead and put this on github to give people a solid starting out 
 
 I have expanded this bot in order to make it work for many more situations depending on configuration, you only need to fill out the config file
 
-## CONFIG REFERENCE:
+## Twitter Bots running on AlphaCafe:
+ - [@YKKBotV2](https://twitter.com/YKKBotV2) by me
+ - [@ShitDominaeSays](https://twitter.com/ShitDominaeSays) by me
+ 
+ ## CONFIG REFERENCE:
  - **BOTNAME** : Only used in greeting for now, but could be expanded
  - **CLIENT_ID**, **CLIENT_SECRET**, etc : Twitter API Auth
  - **IMAGES_PATH** : This is the folder in which all of your media is kept to be randomly picked from. All contents are scanned recursively, so you can have many subfolders
