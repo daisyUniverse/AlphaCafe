@@ -28,7 +28,7 @@ blue    = "\033[1;34m"
 purple  = "\033[1;35m"
 reset   = "\033[0;0m"
 
-print( red + " >>> " + green + cfg['BOTNAME'] + reset + " running in AlphaCafe by @RobinUniverse_" )
+print( red + " >>> " + green + cfg['TWITTER_HANDLE'] + reset + " running in AlphaCafe by @RobinUniverse_" )
 
 # The Beans
 def postTweet():
@@ -52,12 +52,12 @@ def postTweet():
 
     try:
         if cfg['TWEET_WITH_TEXT']:
-            text = randomText()
+            text = randomText().replace("\n"," ")
             print( green + " >>> " + reset + "Posting random text: '" + green + str(text) + reset + "'" )
             
         media           = api.media_upload(imagePath)
         post_results    = client.create_tweet( media_ids=[media.media_id], text=text )
-    except tweepy.errors.TweepError as e:
+    except Exception as e:
         print("Error posting tweet: ", e)
         return None
 
@@ -93,3 +93,5 @@ schedule.every(cfg['DELAY_IN_MINUTES']).minutes.do(postTweet)
 while True:
     schedule.run_pending()
     time.sleep(10)
+
+
