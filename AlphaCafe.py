@@ -58,7 +58,9 @@ def postTweet():
         media           = api.media_upload(imagePath)
         post_results    = client.create_tweet( media_ids=[media.media_id], text=text )
     except Exception as e:
-        print("Error posting tweet: ", e)
+        print(red + "Error posting tweet: " + e + reset)
+        time.sleep(15)
+        postTweet()
         return None
 
 # Return the path of a random panel
