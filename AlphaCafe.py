@@ -28,6 +28,8 @@ blue    = "\033[1;34m"
 purple  = "\033[1;35m"
 reset   = "\033[0;0m"
 
+retryCount = 0
+
 print( red + " >>> " + green + cfg['TWITTER_HANDLE'] + reset + " running in AlphaCafe by @RobinUniverse_" )
 
 # The Beans
@@ -58,9 +60,13 @@ def postTweet():
         media           = api.media_upload(imagePath)
         post_results    = client.create_tweet( media_ids=[media.media_id], text=text )
     except Exception as e:
-        print(red + "Error posting tweet: " + e + reset)
-        time.sleep(15)
-        postTweet()
+        print(red + " !!! [ERROR]: " + yellow + str(e).replace("\n"," ") + reset)
+        if cfg['RETRY_ON_ERROR'] and retryCount < cfg['MAX_RETRIES']:
+            print( red + " !!! " + reset + "Retrying in 15 seconds...")
+            time.sleep(15)
+            retryCount += 1
+            postTweet()
+        
         return None
 
 # Return the path of a random panel
