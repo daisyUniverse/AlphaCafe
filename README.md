@@ -9,15 +9,16 @@ Original bot inpsired by [@YKKPanels](https://twitter.com/YkkPanels) which was c
 ## How can I use this to create my own twitter bot?
 1. [Create a new twitter account](https://twitter.com/i/flow/signup) for your bot ( you need to be signed out to do this )
 2. Verify your phone number with twitter
-3. Go to the [Twitter developer portal](https://developer.twitter.com/) and sign up for free access
-4. Create your app, describing the purpose of the bot ( modify the existing one )
-5. Go to 'User Authentication set up' to set permisions to Read + Write
-6. Give it a some kind of schema ( I use `http://localhost/` )
-7. Generate/Copy all auth tokens/keys/secrets/etc into the config.json
-8. Tweak config.json to your liking
-9. Drop all desired media files into a subdirectory alongside the script ( these can be nested )
-10. Install all required modules ( `pip install -r requirements.txt` )
-11. Run the script! 
+3. Mark your bot account as automated and link it to your main account ( Settings > Account Information > Automation )
+4. Go to the [Twitter developer portal](https://developer.twitter.com/) and sign up for free access
+5. Create your app, describing the purpose of the bot ( modify the existing one )
+6. Go to 'User Authentication set up' to set permisions to Read + Write
+7. Give it a some kind of schema ( I use `http://localhost/` )
+8. Generate/Copy all auth tokens/keys/secrets/etc into the config.json
+9. Tweak config.json to your liking
+10. Drop all desired media files into a subdirectory alongside the script ( these can be nested )
+11. Install all required modules ( `pip install -r requirements.txt` )
+12. Run the script! 
 
 ( Put it on something stable, this runs all the time. If you know how to use it, modify the service file to point to your script. )
 
