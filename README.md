@@ -1,10 +1,12 @@
 # AlphaCafe
 ### Simple configurable twitter bot for "Post random media every X minutes" style bots
-AlphaBot is a simple Twitter Bot written in Python + Tweepy that is meant to be versatile enough to handle the majority of bots handled by the now defunct [Cheap Bots, Done Quick!](https://cheapbotsdonequick.com/)
+AlphaBot is a Twitter Bot written in Python + Tweepy that is meant to be both simple enough to easily be modified and versatile enough to handle the majority of bots handled by the now defunct [Cheap Bots, Done Quick!](https://cheapbotsdonequick.com/) out of the box
 
 You simply set up your bot account, grab your API keys, add keys and desired behaviour to the config file, and drop your text, images, and video files into a folder. The bot will handle the rest! 
 
 Original bot inpsired by [@YKKPanels](https://twitter.com/YkkPanels) which was created by [@FIybyday](https://twitter.com/FIybyday) using [Cheap Bots, Done Quick!](https://cheapbotsdonequick.com/)
+
+![image](https://user-images.githubusercontent.com/12601774/231315740-7f889fd2-5a31-4f86-859e-815f09d36d63.png)
 
 ## How can I use this to create my own twitter bot?
 1. [Create a new twitter account](https://twitter.com/i/flow/signup) for your bot ( you need to be signed out to do this )
@@ -20,7 +22,7 @@ Original bot inpsired by [@YKKPanels](https://twitter.com/YkkPanels) which was c
 11. Install all required modules ( `pip install -r requirements.txt` )
 12. Run the script! 
 
-( Put it on something stable, this runs all the time. If you know how to use it, modify the service file to point to your script. )
+( Put it on something stable, this runs all the time. If you know how to use it, modify the service file to point to your script. This will ensure that the script gets started on bootup, and automatically restarts in case of a crash )
 
 ## Twitter Bots running on AlphaCafe:
  - [@YKKBotV2](https://twitter.com/YKKBotV2) by me
