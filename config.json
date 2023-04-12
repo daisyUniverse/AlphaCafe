@@ -1,6 +1,6 @@
 {
   "TWITTER_API":{
-    "ENABLED": True,
+    "ENABLED": true,
     "TWITTER_HANDLE":"@AlphaCafe",
     "CLIENT_ID":"FILL THIS OUT",
     "CLIENT_SECRET":"FILL THIS OUT",
@@ -11,7 +11,7 @@
     "ACCESS_SECRET":"FILL THIS OUT"
   },
   "MASTODON_API":{
-    "ENABLED": False,
+    "ENABLED": false,
     "INSTANCE_URL":"https://botsin.space",
     "MASTODON_HANDLE":"@AlphaCafe",
     "CLIENT_KEY":"FILL THIS OUT",
@@ -20,10 +20,10 @@
   },
   "DELAY_IN_MINUTES":30,
   "IMAGES_PATH":"media",
-  "INIT_WITH_POST": True,
-  "POST_WITH_TEXT": False,
+  "INIT_WITH_POST": true,
+  "POST_WITH_TEXT": false,
   "TEXT_FILE": "text.txt",
   "DESCRIPTION": "An randomly chosen video or image posted by AlphaCafe",
-  "RETRY_ON_ERROR": True,
+  "RETRY_ON_ERROR": true,
   "MAX_RETRIES": 5
 }
