@@ -1,6 +1,7 @@
 import schedule
 import random
 import tweepy
+import signal
 import time
 import json
 import sys
@@ -50,21 +51,26 @@ def postTweet():
 
     # Upload the image and tweet!
     imagePath       = randomFile()
-    print( green + " >>> " + reset + "Posting random file: '" + green + str(imagePath) + reset + "'" )
+    print( "\r" +  green + " >>> " + reset + "Posting random file: '" + green + str(imagePath) + reset + "'" )
 
     try:
         if cfg['TWEET_WITH_TEXT']:
             text = randomText().replace("\n"," ")
-            print( green + " >>> " + reset + "Posting random text: '" + green + str(text) + reset + "'" )
+            print( "\r" +  green + " >>> " + reset + "Posting random text: '" + green + str(text) + reset + "'" )
             
         media           = api.media_upload(imagePath)
         post_results    = client.create_tweet( media_ids=[media.media_id], text=text )
     except Exception as e:
         print(red + " !!! [ERROR]: " + yellow + str(e).replace("\n"," ") + reset)
         if cfg['RETRY_ON_ERROR'] and retryCount < cfg['MAX_RETRIES']:
-            print( red + " !!! " + reset + "Retrying in 15 seconds...")
-            time.sleep(15)
+            timeout = 15
+            while timeout > 0:
+                # Modify the same line in the terminal to show the countdown
+                sys.stdout.write( red + " !!! " + reset + "Retrying in " + str(timeout) + " seconds... " + red + "(" + str(retryCount) + "/" + str(cfg['MAX_RETRIES']) + ")" + reset + "\r")
+                time.sleep(1)
+                timeout -= 1
             retryCount += 1
+            timeout = 15
             postTweet()
         
         return None
@@ -82,6 +88,20 @@ def randomFile():
 
     randomPath = random.choice(filepaths)
     return randomPath
+
+# Exit gracefully if the user presses Ctrl+C
+def signal_handler(signal, frame):
+    print( "\r" + red + " >>> " + reset + "Exiting AlphaCafe. Later!" )
+    sys.exit(0)
+
+# Handle signals
+signal.signal(signal.SIGINT, signal_handler)
+
+# Optionally, handle Ctrl-\ to invoke postTweet()
+def signal_handler_post(signal, frame):
+    postTweet()
+
+signal.signal(signal.SIGQUIT, signal_handler_post)
 
 # Return a random string of text from a specified text file to tweet, and cap the length at 280 characters.
 def randomText():
