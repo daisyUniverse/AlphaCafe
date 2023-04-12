@@ -1,5 +1,5 @@
 # AlphaCafe
-### Simple configurable twitter bot for "Post random media every X minutes" style bots
+### Simple configurable Twitter and Mastodon bot for "Post random media every X minutes" style bots
 AlphaCafe is a Twitter and Mastodon Bot written in Python that is meant to be both simple enough to easily be modified and versatile enough to handle the majority of bots handled by the now defunct [Cheap Bots, Done Quick!](https://cheapbotsdonequick.com/) out of the box
 
 You simply set up your bot account, grab your API keys, add keys and desired behaviour to the config file, and drop your text, images, and video files into a folder. The bot will handle the rest! 
