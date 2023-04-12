@@ -6,15 +6,14 @@ You simply set up your bot account, grab your API keys, add keys and desired beh
 
 Original bot inpsired by [@YKKPanels](https://twitter.com/YkkPanels) which was created by [@FIybyday](https://twitter.com/FIybyday) using [Cheap Bots, Done Quick!](https://cheapbotsdonequick.com/)
 
-
 ## How can I use this to create my own twitter bot?
-1. create a new twitter account for your bot ( Making it's own fresh e-mail too is nice )
+1. [Create a new twitter account](https://twitter.com/i/flow/signup) for your bot ( you need to be signed out to do this )
 2. Verify your phone number with twitter
-3. Go to https://developer.twitter.com/ to sign up for free access
+3. Go to the [Twitter developer portal](https://developer.twitter.com/) and sign up for free access
 4. Create your app, describing the purpose of the bot ( modify the existing one )
-5. Go to 'User Authentication set up' to set permisions to Read+Write
-6. Give it a some kind of schema ( I used `http://localhost/` )
-7. Generate/Copy all access tokens into the config.json
+5. Go to 'User Authentication set up' to set permisions to Read + Write
+6. Give it a some kind of schema ( I use `http://localhost/` )
+7. Generate/Copy all auth tokens/keys/secrets/etc into the config.json
 8. Tweak config.json to your liking
 9. Drop all desired media files into a subdirectory alongside the script ( these can be nested )
 10. Install all required modules ( `pip install -r requirements.txt` )
