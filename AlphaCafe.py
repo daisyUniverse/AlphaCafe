@@ -35,6 +35,7 @@ print( red + " >>> " + green + cfg['TWITTER_HANDLE'] + reset + " running in Alph
 
 # The Beans
 def postTweet():
+    global retryCount
     # Init the Twitter API V2 Client
     client = tweepy.Client(
         consumer_key        = cfg['CONSUMER_API_KEY'],
