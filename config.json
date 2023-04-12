@@ -1,17 +1,29 @@
 {
-  "TWITTER_HANDLE":"@AlphaCafe",
-  "CLIENT_ID":"FILL THIS OUT",
-  "CLIENT_SECRET":"FILL THIS OUT",
-  "CONSUMER_API_KEY":"FILL THIS OUT",
-  "CONSUMER_API_SECRET":"FILL THIS OUT",
-  "BEARER":"FILL THIS OUT",
-  "ACCESS_TOKEN":"FILL THIS OUT",
-  "ACCESS_SECRET":"FILL THIS OUT",
+  "TWITTER_API":{
+    "ENABLED": True,
+    "TWITTER_HANDLE":"@AlphaCafe",
+    "CLIENT_ID":"FILL THIS OUT",
+    "CLIENT_SECRET":"FILL THIS OUT",
+    "CONSUMER_API_KEY":"FILL THIS OUT",
+    "CONSUMER_API_SECRET":"FILL THIS OUT",
+    "BEARER":"FILL THIS OUT",
+    "ACCESS_TOKEN":"FILL THIS OUT",
+    "ACCESS_SECRET":"FILL THIS OUT"
+  },
+  "MASTODON_API":{
+    "ENABLED": False,
+    "INSTANCE_URL":"https://botsin.space",
+    "MASTODON_HANDLE":"@AlphaCafe",
+    "CLIENT_KEY":"FILL THIS OUT",
+    "CLIENT_SECRET":"FILL THIS OUT",
+    "ACCESS_TOKEN":"FILL THIS OUT"
+  },
   "DELAY_IN_MINUTES":30,
   "IMAGES_PATH":"media",
-  "INIT_WITH_POST": true,
-  "TWEET_WITH_TEXT": false,
+  "INIT_WITH_POST": True,
+  "POST_WITH_TEXT": False,
   "TEXT_FILE": "text.txt",
-  "RETRY_ON_ERROR": true,
+  "DESCRIPTION": "An randomly chosen video or image posted by AlphaCafe",
+  "RETRY_ON_ERROR": True,
   "MAX_RETRIES": 5
 }
